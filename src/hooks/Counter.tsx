@@ -1,5 +1,10 @@
 import { useContext } from "react"
-import { Context } from "../components/Context"
+import { Socket } from "socket.io-client"
+import { Context, socket } from "../components/Context"
+
+type Props = {
+    socket: Socket
+}
 
 export const useCounter = () => {
     const {count, setCount} = useContext(Context)

@@ -1,7 +1,10 @@
 import { useCounter } from "../hooks/Counter"
 
-const Navbar = () => {
-    const { count } = useCounter()
+type Props = {
+    count: number
+}
+
+const Navbar = ({count}: Props) => {
     return (
         <>
             <h1>The count is : {count}</h1>
