@@ -11,14 +11,15 @@ export const Context = createContext({} as ContextType)
 
 type Props = {
     children: React.ReactNode,
-    currentCount: number
+    index: number,
+    current: number
 }
 
-export const Provider = ({ children, currentCount }: Props) => {
-    const [count, setCount] = useState(currentCount)
+export const Provider = ({ children, index, current }: Props) => {
+    const [count, setCount] = useState(current)
     const value = useMemo(() => ({count, setCount}), [count, setCount])
     useEffect(() => {
-        socket.emit('count change', count)
+        socket.emit('count_change', {count, index})
     }, [count])
     return (
         <Context.Provider value={value}>

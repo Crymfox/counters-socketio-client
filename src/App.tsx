@@ -22,7 +22,7 @@ const App = () => {
     })
     socket.on('users_updated', (usersList: userData[]) => {
       setUsers(usersList)
-      console.log(usersList.length)
+      // console.log(usersList.length)
     })
   // socket.on('user_left', (userId) => {
   //   let newUsers = users.filter((user: any) => user !== userId)
@@ -39,12 +39,12 @@ const App = () => {
         </Provider>
       </div> */}
       {
-        users.map((index: userData) => {
-          return (
-            <div key={index.id}>
-              <Provider currentCount={index.count}>
+        users.map((index: userData, key) => {
+          return (  
+            <div key={index.id} className="ring-lime-500 ring-4 m-2 p-1 hover:shadow-2xl">
+              <Provider index={key} current={index.count}>
                 <Navbar count={index.count}/>
-                <Buttons/>
+                <Buttons current={index.count}/>
               </Provider>
             </div>
           )
