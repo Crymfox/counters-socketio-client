@@ -4,8 +4,8 @@ import { Context, socket } from "../components/Context"
 
 
 export const useCounter = (current: number) => {
-    const {count, setCount} = useContext(Context)
+    const {setCount} = useContext(Context)
     const increment = () => setCount(current + 1)
     const decrement = () => setCount(current - 1)
-    return {count, increment, decrement}
+    return {current, increment, decrement}
 }

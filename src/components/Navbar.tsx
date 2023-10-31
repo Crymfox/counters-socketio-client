@@ -4,10 +4,12 @@ type Props = {
     count: number
 }
 
+
 const Navbar = ({count}: Props) => {
+    const {current} = useCounter(count)
     return (
-        <div className="grid place-items-center">
-            <h1 className="text-8xl">{count}</h1>
+        <div className="grid place-items-center my-4">
+            <h1 className="text-8xl">{current}</h1>
         </div>
     )
 }
